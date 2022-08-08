@@ -17,17 +17,20 @@ export default function Blog({
 
   return (
     <Container
-      title="Blog – Lee Robinson"
-      description="Thoughts on the software industry, programming, tech, videography, music, and my personal life."
+      title="Blog – Rishi Collins"
+      description="My journey attempting to achieve my dreams."
     >
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           Blog
         </h1>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
-          {`I've been writing online since 2014, mostly about web development and tech careers.
-            In total, I've written ${posts.length} articles on my blog.
+          {`Here you can find my thoughts, ranging from anything to programming or my view of the world.
+            So far, I've written ${posts.length} articles on this site.
             Use the search below to filter by title.`}
+        </p>
+        <p className='mb-4 text-gray-600 dark:text-gray-400'>
+          Views expressed on this blog are solely my own, and are not relative of any person, business entity, or institution that I may be affiliated with at any given time, unless stated otherwise.
         </p>
         <div className="relative w-full mb-4">
           <input
@@ -58,19 +61,14 @@ export default function Blog({
               Most Popular
             </h3>
             <BlogPost
-              title="Rust Is The Future of JavaScript Infrastructure"
-              excerpt="Why is Rust being used to replace parts of the JavaScript web ecosystem like minification (Terser), transpilation (Babel), formatting (Prettier), bundling (webpack), linting (ESLint), and more?"
-              slug="rust"
+              title="My First Full-Scale Web Application"
+              excerpt="What building a full-scale application taught me, how long it took, what it was, and how I got there."
+              slug="building-a-full-scale-web-app"
             />
             <BlogPost
-              title="Everything I Know About Style Guides, Design Systems, and Component Libraries"
-              excerpt="A deep-dive on everything I've learned in the past year building style guides, design systems, component libraries, and their best practices."
-              slug="style-guides-component-libraries-design-systems"
-            />
-            <BlogPost
-              title="Building a Design System Monorepo with Turborepo"
-              excerpt="Manage multiple packages with a shared build, test, and release process using Turborepo, Changesets, Storybook, and more."
-              slug="turborepo-design-system-monorepo"
+              title="My Programming: The Journey and Future"
+              excerpt="A trip back in time on how I started my journey as a developer from a technological passion."
+              slug="journey"
             />
           </>
         )}

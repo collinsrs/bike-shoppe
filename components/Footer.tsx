@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-import NowPlaying from 'components/NowPlaying';
 
 const ExternalLink = ({ href, children }) => (
   <a
@@ -17,7 +16,6 @@ export default function Footer() {
   return (
     <footer className="flex flex-col justify-center items-start max-w-2xl mx-auto w-full mb-8">
       <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" />
-      <NowPlaying />
       <div className="w-full max-w-2xl grid grid-cols-1 gap-4 pb-16 sm:grid-cols-3">
         <div className="flex flex-col space-y-4">
           <Link href="/">
@@ -28,42 +26,40 @@ export default function Footer() {
               About
             </a>
           </Link>
-          <Link href="/newsletter">
+          <Link href="/blog">
             <a className="text-gray-500 hover:text-gray-600 transition">
-              Newsletter
+              Blog
             </a>
           </Link>
         </div>
         <div className="flex flex-col space-y-4">
-          <ExternalLink href="https://twitter.com/leeerob">
+          <ExternalLink href="https://twitter.com/washedrsc">
             Twitter
           </ExternalLink>
-          <ExternalLink href="https://github.com/leerob">GitHub</ExternalLink>
-          <ExternalLink href="https://www.youtube.com/channel/UCZMli3czZnd1uoc1ShTouQw">
-            YouTube
+          <ExternalLink href="https://github.com/collinsrs">GitHub</ExternalLink>
+          <ExternalLink href="https://www.linkedin.com/in/collinsrs/">
+            LinkedIn
           </ExternalLink>
         </div>
         <div className="flex flex-col space-y-4">
-          <Link href="/uses">
-            <a className="text-gray-500 hover:text-gray-600 transition">Uses</a>
+          <Link href="/stack">
+            <a className="text-gray-500 hover:text-gray-600 transition">Stack</a>
           </Link>
-          <Link href="/guestbook">
+          <Link href="/privacy-terms">
             <a className="text-gray-500 hover:text-gray-600 transition">
-              Guestbook
-            </a>
-          </Link>
-          <Link href="/snippets">
-            <a className="text-gray-500 hover:text-gray-600 transition">
-              Snippets
-            </a>
-          </Link>
-          <Link href="/tweets">
-            <a className="text-gray-500 hover:text-gray-600 transition">
-              Tweets
+              Privacy &amp; Terms
             </a>
           </Link>
         </div>
       </div>
+      <p className="text-gray-500">
+          © {new Date().getFullYear()} Rishi Collins. All rights reserved.
+      </p>
+      <p className="text-gray-500">
+       Built with <Link href="https://nextjs.org/">Next.js</Link> with design inspired by <Link href="https://www.leerob.io/">Lee Robinson</Link>.
+      </p>
     </footer>
   );
 }
+
+

@@ -3,7 +3,7 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 export type Post = {
   _id: string;
   slug: string;
-  content: MDXRemoteSerializeResult;
+  content: any;
   title: string;
   date: string;
   excerpt: string;
@@ -60,10 +60,6 @@ export type TopTracks = {
   tracks: Song[];
 };
 
-export type YouTube = {
-  subscriberCount: number;
-  viewCount: number;
-};
 
 export type GitHub = {
   stars: number;

@@ -3,9 +3,9 @@ import { deskTool } from 'sanity/desk';
 import { markdownSchema } from 'sanity-plugin-markdown';
 
 export default createConfig({
-  name: 'default',
-  title: 'leerob.io',
-  projectId: '56a8ffnw',
+  name: 'rishicollins-com',
+  title: 'rishicollins-com',
+  projectId: 'nb6dptbv',
   dataset: 'production',
   plugins: [deskTool(), markdownSchema()],
   schema: {
@@ -47,41 +47,6 @@ export default createConfig({
             name: 'date',
             title: 'Date',
             type: 'datetime'
-          }
-        ]
-      },
-      {
-        name: 'snippet',
-        type: 'document',
-        title: 'Snippet',
-        fields: [
-          {
-            name: 'title',
-            title: 'Title',
-            type: 'string'
-          },
-          {
-            name: 'slug',
-            title: 'Slug',
-            type: 'slug',
-            options: {
-              source: 'title'
-            }
-          },
-          {
-            name: 'content',
-            title: 'Content',
-            type: 'markdown'
-          },
-          {
-            name: 'description',
-            title: 'Description',
-            type: 'string'
-          },
-          {
-            name: 'logo',
-            title: 'Logo',
-            type: 'image'
           }
         ]
       }

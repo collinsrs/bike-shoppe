@@ -7,7 +7,7 @@ const createSitemap = (slugs) => `<?xml version="1.0" encoding="UTF-8"?>
           .map((slug) => {
             return `
                 <url>
-                    <loc>${`https://leerob.io/${slug}`}</loc>
+                    <loc>${`https://rishicollins.com/${slug}`}</loc>
                 </url>
             `;
           })
@@ -22,11 +22,8 @@ export async function getServerSideProps({ res }) {
       '',
       'about',
       'blog',
-      'dashboard',
-      'guestbook',
-      'newsletter',
-      'tweets',
-      'uses'
+      'stack',
+      'privacy-terms'
     ]
   ];
 
