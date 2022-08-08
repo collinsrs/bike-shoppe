@@ -5,11 +5,13 @@ import { ThemeProvider } from 'next-themes';
 import { SessionProvider } from 'next-auth/react';
 import { GoogleAnalytics } from 'nextjs-google-analytics';
 
+const gaMeasurementId = 'G-XKSNX4TTFJ';
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <SessionProvider session={pageProps.session}>
       <ThemeProvider attribute="class">
-        <GoogleAnalytics strategy="lazyOnload" />
+        <GoogleAnalytics gaMeasurementId={gaMeasurementId} strategy="lazyOnload" />
         <Component {...pageProps} />
       </ThemeProvider>
     </SessionProvider>
