@@ -18,7 +18,7 @@ export default function Home({fallbackData}) {
               </h1>
               <h2 className="text-gray-700 dark:text-gray-200 mb-4">
                 Student, aspiring{' '}
-                <span className="font-semibold">Software Enginner/Developer</span>
+                <span className="font-semibold">Software Engineer/Developer</span>
               </h2>
               <p className="text-gray-600 dark:text-gray-400 mb-16">
                 Experienced High-School student with a strong passion for technology, I am working to fulfill my dreams as a software developer.

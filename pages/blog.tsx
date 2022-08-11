@@ -30,7 +30,7 @@ export default function Blog({
             Use the search below to filter by title.`}
         </p>
         <p className='mb-4 text-gray-600 dark:text-gray-400'>
-          Views expressed on this blog are solely my own, and are not relative of any person, business entity, or institution that I may be affiliated with at any given time, unless stated otherwise.
+          Views expressed on this blog are solely my own, and are not representative of any person, business entity, or institution that I may be affiliated with at any given time, unless stated otherwise.
         </p>
         <div className="relative w-full mb-4">
           <input
