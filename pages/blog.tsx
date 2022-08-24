@@ -62,7 +62,7 @@ export default function Blog({
             </h3>
             <BlogPost
               title="My First Full-Scale Web Application"
-              excerpt="What building a full-scale application taught me, how long it took, what it was, and how I got there."
+              excerpt="What building a full-scale application taught me, the technologies involved, what I built, and how I got there."
               slug="building-a-full-scale-web-app"
             />
             <BlogPost
