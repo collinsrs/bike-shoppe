@@ -15,7 +15,7 @@ export default function BlogLayout({
 : PropsWithChildren<{ post: Post }>) {
   return (
     <Container
-      title={`${post.title} – Lee Robinson`}
+      title={`${post.title} – Rishi Collins`}
       description={post.excerpt}
       image={urlForImage(post.coverImage).url()}
       date={new Date(post.date).toISOString()}
@@ -50,7 +50,7 @@ export default function BlogLayout({
           </div>
           <div className="text-sm text-gray-700 dark:text-gray-300">
             <a
-              href={`https://mobile.twitter.com/search?q=${encodeURIComponent(
+              href={`https://mobile.twitter.com/compose/tweet?text=${encodeURIComponent(
                 `https://rishicollins.com/blog/${post.slug}`
               )}`}
               target="_blank"
