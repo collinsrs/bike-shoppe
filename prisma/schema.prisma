@@ -25,7 +25,6 @@ model request {
   requestMethod String
   remoteUser String
   statusCode Int
-  remoteLocale String 
   remoteCity String
   remoteCountry String
   timestamp DateTime @default(now()) @db.Timestamp(6)
