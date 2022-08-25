@@ -4,8 +4,15 @@ import Image from 'next/future/image';
 import Container from 'components/Container';
 import avatar from 'public/avatar.jpg';
 import avatarBW from 'public/avatar-bw.jpg';
+import { useEffect } from 'react';
 
 export default function About() {
+  useEffect(() => {
+    fetch ('/api/logging?ref=about', {
+      method: 'POST',
+  })
+  }
+  , [])
   return (
     <Container title="About Me – Rishi Collins">
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">

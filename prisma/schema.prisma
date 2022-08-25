@@ -23,7 +23,7 @@ model request {
   id String @id @default(uuid())
   slug String 
   requestMethod String
-  remoteAddress String
+  remoteUser String
   statusCode Int
   timestamp DateTime @default(now()) @db.Timestamp(6)
   userAgent String

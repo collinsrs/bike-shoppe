@@ -6,6 +6,7 @@ import { InferGetStaticPropsType } from 'next';
 import { indexQuery } from 'lib/queries';
 import { getClient } from 'lib/sanity-server';
 import { Post } from 'lib/types';
+import { useEffect } from 'react';
 
 export default function Blog({
   posts
@@ -14,6 +15,12 @@ export default function Blog({
   const filteredBlogPosts = posts.filter((post) =>
     post.title.toLowerCase().includes(searchValue.toLowerCase())
   );
+  useEffect(() => {
+    fetch ('/api/logging?ref=blog', {
+      method: 'POST'
+  })
+  }
+  , [])
 
   return (
     <Container

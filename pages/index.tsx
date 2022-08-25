@@ -5,10 +5,16 @@ import Link from 'next/link';
 import Container from '../components/Container';
 import BlogPostCard from '../components/BlogPostCard';
 import Contact from 'components/Contact';
-import { PrismaClient } from '@prisma/client';
+import { useEffect } from 'react';
 
 
 export default function Home({fallbackData}) {
+  useEffect(() => {
+    fetch ('/api/logging?ref=main', {
+      method: 'POST',
+  })
+  }
+  , [])
   return (
     <Suspense fallback={null}>
       <Container>
@@ -86,50 +92,3 @@ export default function Home({fallbackData}) {
   );
 }
 
-export async function getServerSideProps({req}) {
-  const prisma = new PrismaClient();
-  let remoteIP;
-  if (req.headers["x-forwarded-for"]) {
-    remoteIP = req.headers["x-forwarded-for"].split(',')[0]
-    await prisma.request.create ({
-      data: {
-        slug: '/',
-        requestMethod: 'get',
-        remoteAddress: remoteIP,
-        statusCode: 200,
-        userAgent: req.headers['user-agent'],
-        timestamp: new Date()
-      }
-    })
-  } else if (req.headers["x-real-ip"]) {
-    remoteIP = req.connection.remoteAddress
-    await prisma.request.create ({
-      data: {
-        slug: '/',
-        requestMethod: 'get',
-        remoteAddress: remoteIP,
-        statusCode: 200,
-        userAgent: req.headers['user-agent'],
-        timestamp: new Date()
-      }
-    })
-  } else {
-    remoteIP = req.connection.remoteAddress
-    await prisma.request.create ({
-      data: {
-        slug: '/',
-        requestMethod: 'get',
-        remoteAddress: remoteIP,
-        statusCode: 200,
-        userAgent: req.headers['user-agent'],
-        timestamp: new Date()
-      }
-    })
-  }
-  return {
-    props: {
-      remoteIP: remoteIP
-    }
-  }
-
-}

@@ -1,8 +1,14 @@
 import Container from 'components/Container';
 import { PrismaClient } from '@prisma/client';
+import { useEffect } from 'react';
 
 export default function PrivacyPolicy (props) {
-    const remoteAddress = props.remoteIP;
+    useEffect(() => {
+        fetch ('/api/logging?ref=privacy-terms', {
+          method: 'POST'
+      })
+      }
+      , [])
     //privacy policy
     return (
         <Container title='Privacy/Terms - Rishi Collins'>
@@ -16,7 +22,7 @@ export default function PrivacyPolicy (props) {
                 What personal information is collected when you visit this website?
             </h2>
             <p>
-                When you visit <a href="https://rishicollins.com">rishicollins.com</a>, which is referred as the "Site" in this document, receives information about your device, browser, operating system, and your relative location based off of your Internet Protocol ("IP") address. Your IP address ({remoteAddress}), along with any requests you make to this site, may be logged and retained on our servers for security purposes.
+                When you visit <a href="https://rishicollins.com">rishicollins.com</a>, which is referred as the "Site" in this document, receives information about your device, browser, operating system, and your relative location based off of your Internet Protocol ("IP") address, along with any requests you make to this site, may be logged and retained on our servers for security purposes.
             </p>
             <p>
                 Additionally, when you choose to take further action on the Site, specifically by utilizing the contact feature, the Site receives your name and email address, along with your message content. This information is used to respond to your message, and to contact you regarding your inquiry.
@@ -59,50 +65,3 @@ export default function PrivacyPolicy (props) {
     );
 }
 
-export async function getServerSideProps({req}) {
-    const prisma = new PrismaClient();
-    let remoteIP;
-    if (req.headers["x-forwarded-for"]) {
-      remoteIP = req.headers["x-forwarded-for"].split(',')[0]
-      await prisma.request.create ({
-        data: {
-          slug: '/privacy-terms',
-          requestMethod: 'get',
-          remoteAddress: remoteIP,
-          statusCode: 200,
-          userAgent: req.headers['user-agent'],
-          timestamp: new Date()
-        }
-      })
-    } else if (req.headers["x-real-ip"]) {
-      remoteIP = req.connection.remoteAddress
-      await prisma.request.create ({
-        data: {
-          slug: '/privacy-terms',
-          requestMethod: 'get',
-          remoteAddress: remoteIP,
-          statusCode: 200,
-          userAgent: req.headers['user-agent'],
-          timestamp: new Date()
-        }
-      })
-    } else {
-      remoteIP = req.connection.remoteAddress
-      await prisma.request.create ({
-        data: {
-          slug: '/privacy-terms',
-          requestMethod: 'get',
-          remoteAddress: remoteIP,
-          statusCode: 200,
-          userAgent: req.headers['user-agent'],
-          timestamp: new Date()
-        }
-      })
-    }
-    return {
-      props: {
-        remoteIP: remoteIP
-      }
-    }
-  
-  }
