@@ -5,7 +5,10 @@ import { useEffect } from 'react';
 export default function PrivacyPolicy (props) {
     useEffect(() => {
         fetch ('/api/logging?ref=privacy-terms', {
-          method: 'POST'
+          method: 'POST',
+          headers: {
+            'Authorization': '492ef020-f8f9-11ea-9fa5-0242ac130003-2390fkv3k05svc'
+          } 
       })
       }
       , [])

@@ -1,8 +1,18 @@
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 import Container from 'components/Container';
 
 export default function NotFound() {
+  useEffect(() => {
+    fetch ('/api/logging?ref=404page', {
+      method: 'POST',
+      headers: {
+        'Authorization': '492ef020-f8f9-11ea-9fa5-0242ac130003-2390fkv3k05svc'
+      } 
+  })
+  }
+  , [])
   return (
     <Container title="404 – Rishi Collins">
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
