@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Container from '../components/Container';
 import BlogPostCard from '../components/BlogPostCard';
 import Contact from 'components/Contact';
+import { PrismaClient } from '@prisma/client';
+
 
 export default function Home({fallbackData}) {
   return (
@@ -84,3 +86,51 @@ export default function Home({fallbackData}) {
   );
 }
 
+export async function getServerSideProps(context) {
+  const prisma = new PrismaClient();
+  let remoteIP;
+  const {req} = context;
+  if (req.headers["x-forwarded-for"]) {
+    remoteIP = req.headers["x-forwarded-for"].split(',')[0]
+    await prisma.request.create ({
+      data: {
+        slug: '/',
+        requestMethod: 'get',
+        remoteAddress: remoteIP,
+        statusCode: 200,
+        userAgent: req.headers['user-agent'],
+        timestamp: new Date()
+      }
+    })
+  } else if (req.headers["x-real-ip"]) {
+    remoteIP = req.connection.remoteAddress
+    await prisma.request.create ({
+      data: {
+        slug: '/',
+        requestMethod: 'get',
+        remoteAddress: remoteIP,
+        statusCode: 200,
+        userAgent: req.headers['user-agent'],
+        timestamp: new Date()
+      }
+    })
+  } else {
+    remoteIP = req.connection.remoteAddress
+    await prisma.request.create ({
+      data: {
+        slug: '/',
+        requestMethod: 'get',
+        remoteAddress: remoteIP,
+        statusCode: 200,
+        userAgent: req.headers['user-agent'],
+        timestamp: new Date()
+      }
+    })
+  }
+  return {
+    props: {
+      remoteIP: remoteIP
+    }
+  }
+
+}

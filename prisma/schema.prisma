@@ -17,3 +17,14 @@ model guestbook {
   created_at DateTime @default(now()) @db.Timestamp(6)
   updated_at DateTime @default(now()) @db.Timestamp(6)
 }
+
+
+model Request {
+  id String @id @default(uuid())
+  slug String 
+  requestMethod String
+  remoteAddress String
+  statusCode Int
+  timestamp DateTime @default(now()) @db.Timestamp(6)
+  userAgent String
+}
