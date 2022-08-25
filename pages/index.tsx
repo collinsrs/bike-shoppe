@@ -86,10 +86,9 @@ export default function Home({fallbackData}) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps({req}) {
   const prisma = new PrismaClient();
   let remoteIP;
-  const {req} = context;
   if (req.headers["x-forwarded-for"]) {
     remoteIP = req.headers["x-forwarded-for"].split(',')[0]
     await prisma.request.create ({
