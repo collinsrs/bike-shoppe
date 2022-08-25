@@ -6,22 +6,16 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 export default async function logRemote(req: NextApiRequest, res: NextApiResponse) {
     const requestId = uuid();
     const remoteIP: string | any = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    const city: string | any = req.headers['x-vercel-ip-city'] || 'Unknown or Development';
-    const country: string | any = req.headers['x-vercel-ip-country'] || 'Unknown or Development';
-    const remoteTimeZone: any = req.headers['x-vercel-ip-timezone'] || 'Unknown or Development';
     res.setHeader('ssc-request-id', requestId);
     const refererSlug: any = req.query.ref;
     const result = await prisma.request.create({
         data: {
             slug: refererSlug,
             requestMethod: 'get',
-            remoteUser: 'value1',
-            remoteCountry: 'value2',
-            remoteCity: 'value3',
+            remoteUser: remoteIP,
             statusCode: 200,
             userAgent: req.headers['user-agent'],
             timestamp: new Date(),
-            timeZone: 'value4'
         }
     });
     const jsonData = {
