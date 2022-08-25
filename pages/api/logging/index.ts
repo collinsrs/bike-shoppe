@@ -5,10 +5,10 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function logRemote(req: NextApiRequest, res: NextApiResponse) {
     const requestId = uuid();
-    const remoteIP: any = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    const city: any = req.headers['x-vercel-ip-city'] || 'Unknown or Development';
-    const country: any = req.headers['x-vercel-ip-country'] || 'Unknown or Development';
-    const remoteTimeZone: any = req.headers['x-vercel-ip-timezone'] || 'Unknown or Development';
+    const remoteIP: string | any = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    const city: string | any = req.headers['x-vercel-ip-city'] || 'Unknown or Development';
+    const country: string | any = req.headers['x-vercel-ip-country'] || 'Unknown or Development';
+    const remoteTimeZone: string | any = req.headers['x-vercel-ip-timezone'] || 'Unknown or Development';
     res.setHeader('ssc-request-id', requestId);
     const refererSlug: any = req.query.ref;
     const result = await prisma.request.create({
@@ -35,3 +35,15 @@ export default async function logRemote(req: NextApiRequest, res: NextApiRespons
     }
     res.status(201).json(jsonData);
 }
+
+type Country = {
+    string
+};
+type City = {
+    name: string;
+    code: string;
+};
+type TimeZone = {
+    name: string;
+    code: string;
+};
