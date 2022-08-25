@@ -67,7 +67,7 @@ export async function getServerSideProps(context) {
       remoteIP = req.headers["x-forwarded-for"].split(',')[0]
       await prisma.request.create ({
         data: {
-          slug: '/',
+          slug: '/privacy-terms',
           requestMethod: 'get',
           remoteAddress: remoteIP,
           statusCode: 200,
@@ -79,7 +79,7 @@ export async function getServerSideProps(context) {
       remoteIP = req.connection.remoteAddress
       await prisma.request.create ({
         data: {
-          slug: '/',
+          slug: '/privacy-terms',
           requestMethod: 'get',
           remoteAddress: remoteIP,
           statusCode: 200,
@@ -91,7 +91,7 @@ export async function getServerSideProps(context) {
       remoteIP = req.connection.remoteAddress
       await prisma.request.create ({
         data: {
-          slug: '/',
+          slug: '/privacy-terms',
           requestMethod: 'get',
           remoteAddress: remoteIP,
           statusCode: 200,

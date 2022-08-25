@@ -19,7 +19,7 @@ model guestbook {
 }
 
 
-model Request {
+model request {
   id String @id @default(uuid())
   slug String 
   requestMethod String
