@@ -51,6 +51,8 @@ export default function Contact({ fallbackData, props }) {
     });
   };
 
+  const isDisabled: boolean = true;
+
   return (
     <>
       <div className="border border-blue-200 rounded p-6 my-4 w-full dark:border-gray-800 bg-blue-50 dark:bg-blue-opaque">
@@ -95,9 +97,10 @@ export default function Contact({ fallbackData, props }) {
         ) : form.state === Form.Success ? (
           <SuccessMessage>{form.message}</SuccessMessage>
         ) : (
-          <p className="text-sm text-gray-800 dark:text-gray-200">
-            GitHub Authentication is required to leave a message. When you connect your GitHub Account, I receive your name and email address. This information is used to identify you. It is stored securely, and is not shared with anyone else. Support for more SSO providers coming soon.
+          <p className="text-red-800 dark:text-red-500">
+            The login server is currently down. To get in contact, you can email me at <a href="mailto:me@rishicollins.com">me@rishicollins.com</a> 
           </p>
+          
         )}
       </div>
     </>

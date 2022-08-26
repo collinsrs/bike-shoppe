@@ -33,15 +33,20 @@ export default function Footer() {
           </Link>
         </div>
         <div className="flex flex-col space-y-4">
-          <ExternalLink href="https://twitter.com/washedrsc">
+          <ExternalLink href="https://twitter.com/rishicollins">
             Twitter
           </ExternalLink>
           <ExternalLink href="https://github.com/collinsrs">GitHub</ExternalLink>
-          <ExternalLink href="https://www.linkedin.com/in/collinsrs/">
+          <ExternalLink href="https://www.linkedin.com/in/rishicollins/">
             LinkedIn
           </ExternalLink>
         </div>
         <div className="flex flex-col space-y-4">
+          <Link href="/experience">
+            <a className="text-gray-500 hover:text-gray-600 transition">
+              Experience
+            </a>
+          </Link>
           <Link href="/stack">
             <a className="text-gray-500 hover:text-gray-600 transition">Stack</a>
           </Link>

@@ -23,6 +23,7 @@ export async function getServerSideProps({ res }) {
       'about',
       'blog',
       'stack',
+      'experience',
       'privacy-terms'
     ]
   ];
