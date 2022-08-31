@@ -13,6 +13,10 @@ export default function BlogLayout({
   post
 }
 : PropsWithChildren<{ post: Post }>) {
+  const standardizedDate = format(
+    'MMMM dd, yyyy',
+    parseISO(post.date)
+  );
   return (
     <Container
       title={`${post.title} – Rishi Collins`}
@@ -36,8 +40,8 @@ export default function BlogLayout({
               className="rounded-full"
             />
             <p className="ml-2 text-sm text-gray-700 dark:text-gray-300">
-              {'Rishi Collins / '}
-              {post.date}
+              {'by Rishi Collins | '}
+              {standardizedDate}
             </p>
           </div>
     
@@ -48,7 +52,7 @@ export default function BlogLayout({
           </div>
           <div className="mt-8">
           </div>
-          <div className="text-sm text-gray-700 dark:text-gray-300">
+          <div className="text-sm text-blue-800 dark:text-blue-400 font-bold">
             <a
               href={`https://mobile.twitter.com/compose/tweet?text=${encodeURIComponent(
                 `https://rishicollins.com/blog/${post.slug}`
@@ -58,6 +62,9 @@ export default function BlogLayout({
             >
               {'Share to a Tweet'}
             </a>
+          </div>
+          <div className="text-sm text-gray-700 dark:text-gray-300">
+            <h6 className='font-semibold'>Date Last Updated: {standardizedDate}</h6>
           </div>
         </Suspense>
       </article>
