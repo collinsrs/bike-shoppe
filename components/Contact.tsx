@@ -90,6 +90,9 @@ export default function Contact({ fallbackData, props }) {
             >
               {form.state === Form.Loading ? <LoadingSpinner /> : 'Send'}
             </button>
+            <p className='text-center text-gray-800 dark:text-gray-200'>
+              You are currently logged in as {session.user.name}
+            </p>
           </form>
         )}
         {form.state === Form.Error ? (
