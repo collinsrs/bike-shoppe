@@ -23,19 +23,6 @@ export default function NotFound() {
           I've looked long, hard, and clear, but I still can't find the page you're looking for using the requested URL. Are you sure you got it Right? Maybe check the spelling?
           If you're positive that you got it right, maybe it might have been taken down. 
         </p>
-
-        <p className="text-gray-600 dark:text-gray-400 mb-8">
-        What does 404 mean? What do all the other numbers you see on the web mean?
-        </p>
-
-        <Link href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">
-          <a className="p-1 sm:p-4 w-64 font-bold mx-auto bg-gray-200 dark:bg-gray-800 text-center rounded-md text-black dark:text-white">
-            Learn more about HTTP status codes
-          </a>
-        </Link>
-
-        <br />
-
         <Link href="/">
           <a className="p-1 sm:p-4 w-64 font-bold mx-auto bg-gray-200 dark:bg-gray-800 text-center rounded-md text-black dark:text-white">
             Return Home

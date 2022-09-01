@@ -65,11 +65,11 @@ export default function Contact({ fallbackData, props }) {
         {!session && (
           // eslint-disable-next-line @next/next/no-html-link-for-pages
           <a
-            href="/api/auth/signin/github"
+            href="/api/auth/signin"
             className="flex items-center justify-center my-4 font-bold h-8 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded w-28"
             onClick={(e) => {
               e.preventDefault();
-              signIn('github');
+              signIn();
             }}
           >
             Login
@@ -97,10 +97,9 @@ export default function Contact({ fallbackData, props }) {
         ) : form.state === Form.Success ? (
           <SuccessMessage>{form.message}</SuccessMessage>
         ) : (
-          <p className="text-red-800 dark:text-red-500">
-            The login server is currently down. To get in contact, you can email me at <a href="mailto:me@rishicollins.com">me@rishicollins.com</a> 
+          <p className="text-gray-500 dark:text-gray-400">
+            Login using your GitHub or Google account to leave a message. When you log in, I receive your name and email address. This information is stored in a secured and will not be sold to or be viewed by any third party.
           </p>
-          
         )}
       </div>
     </>
