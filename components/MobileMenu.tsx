@@ -3,9 +3,8 @@ import Link from 'next/link';
 import useDelayedRender from 'use-delayed-render';
 import { useState, useEffect } from 'react';
 import styles from 'styles/mobile-menu.module.css';
-import { getSession } from 'next-auth/react';
 
-const session = await getSession();
+
 
 export default function MobileMenu() {
 
@@ -94,16 +93,6 @@ export default function MobileMenu() {
               <a className="flex w-auto pb-4">Stack</a>
             </Link>
           </li>
-          {session && ( session.user.role === 'ADMIN' && (
-            <li
-              className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
-              style={{ transitionDelay: '350ms' }}
-            >
-              <Link href="/admin">
-                <a className="flex w-auto pb-4">Admin</a>
-              </Link>
-            </li>
-          ))}
         </ul>
       )}
     </>
