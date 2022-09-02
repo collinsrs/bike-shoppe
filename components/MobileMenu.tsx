@@ -24,7 +24,7 @@ export default async function MobileMenu() {
       document.body.style.overflow = 'hidden';
     }
   }
-  const session = await getSession();
+
 
   useEffect(() => {
     return function cleanup() {
@@ -91,16 +91,6 @@ export default async function MobileMenu() {
               <a className="flex w-auto pb-4">Stack</a>
             </Link>
           </li>
-          {session && session.user.role === 'ADMIN' && (
-             <li
-             className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
-             style={{ transitionDelay: '350ms' }}
-           >
-             <Link href="/admin">
-               <a className="flex w-auto pb-4">Admin Panel</a>
-             </Link>
-           </li>
-           )}
         </ul>
       )}
     </>
