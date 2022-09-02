@@ -116,7 +116,7 @@ export default function Contact({ fallbackData, props }) {
           <SuccessMessage>{form.message}</SuccessMessage>
         ) : (
           <p className="text-gray-500 dark:text-gray-400">
-            Login using your GitHub or Google account to leave a message. When you log in, I receive your name and email address. This information is stored in a secured and will not be sold to or be viewed by any third party.
+            Login using your GitHub or Google account to leave a message. When you log in, I receive your name and email address. This information is secured and will not be sold to or be viewed by any third party.
           </p>
         )}
       </div>
