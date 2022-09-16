@@ -1,6 +1,6 @@
 import { useState, useRef, Suspense } from 'react';
 import { format } from 'date-fns';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 import useSWR, { useSWRConfig } from 'swr';
 
 import fetcher from 'lib/fetcher';
@@ -101,9 +101,12 @@ export default function Contact({ fallbackData, props }) {
             <p className='text-center text-gray-800 dark:text-gray-200'>
               You are currently logged in as {session.user.name}
             </p>
+            <button className="flex items-center justify-center my-4 font-bold h-8 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded w-28" onClick={() => signOut()}>
+              Sign out
+            </button>
           </form>
         )}
-        {session && session.user.role === 'ADMIN' && (
+        {session && session.user.role === 'admin' && (
           <div className="flex items-center justify-center my-4 font-bold h-8 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded w-28">
             <p className="text-green-800 dark:text-green-500">
               Congrats! You're an admin!
