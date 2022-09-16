@@ -81,9 +81,6 @@ export default function Container(props) {
             <NavItem href="/experience" text="Experience" />
             <NavItem href="/blog" text="Blog" />
             <NavItem href="/stack" text="Stack" />
-            {session.user.role === 'admin' && (
-              <NavItem href="/admin" text="Admin" />
-            )}
           </div>
           <button
             aria-label="Toggle Dark Mode"
