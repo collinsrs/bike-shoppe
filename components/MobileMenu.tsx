@@ -3,11 +3,13 @@ import Link from 'next/link';
 import useDelayedRender from 'use-delayed-render';
 import { useState, useEffect } from 'react';
 import styles from 'styles/mobile-menu.module.css';
+import { useSession } from 'next-auth/react';
 
 
 
 export default function MobileMenu() {
 
+  const {data: session} = useSession();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
     isMenuOpen,
@@ -95,6 +97,24 @@ export default function MobileMenu() {
           </li>
         </ul>
       )}
+      {isMenuMounted && session.user.role === 'admin' && (
+          <ul
+            className={cn(
+              styles.menu,
+              'flex flex-col absolute bg-gray-100 dark:bg-gray-900',
+              isMenuRendered && styles.menuRendered
+            )}
+          >
+            <li
+              className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
+              style={{ transitionDelay: '350ms' }}
+            >
+              <Link href="/admin">
+                <a className="flex w-auto pb-4">Admin</a>
+              </Link>
+            </li>
+          </ul>
+        )}
     </>
   );
 }
