@@ -35,7 +35,7 @@ export default function Contact({ fallbackData, props }) {
       method: 'POST'
     });
 
-    const emailEntry = await fetch(`/api/messages/relay&usd="${session.user.id}"`, {
+    const emailEntry = await fetch(`/api/messages/relay&usd=${session.user.id}`, {
       body: JSON.stringify({
         sdn: session.user.name,
         data: inputEl.current.value

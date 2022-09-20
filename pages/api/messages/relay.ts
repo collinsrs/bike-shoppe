@@ -33,6 +33,7 @@ if (req.method === 'POST') {
         }
         ).catch(err => {
             res.status(500).json({error: err});
+            console.log(err);
         }
         );
     } else if (senderId !== collectedId) {
