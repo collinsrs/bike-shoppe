@@ -1,7 +1,8 @@
 import {SparkPost} from 'sparkpost';
 import { getSession } from 'next-auth/react';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handle (req, res) {
+export default async function handle (req: NextApiRequest, res: NextApiResponse) {
  const sender = req.body.sdn;
  const senderId = req.query.usd;
  const {data} = req.body.data;
@@ -31,7 +32,7 @@ if (req.method === 'POST') {
             res.status(200).json({message: 'Message sent successfully'});
         }
         ).catch(err => {
-            res.status(500).json({error: 'An internal error has occured. Please try again.'});
+            res.status(500).json({error: err});
         }
         );
     } else if (senderId !== collectedId) {
