@@ -20,6 +20,7 @@ export default function Contact({ fallbackData, props }) {
     fallbackData
   });
 
+
   const leaveEntry = async (e) => {
     e.preventDefault();
     setForm({ state: Form.Loading });
@@ -27,6 +28,17 @@ export default function Contact({ fallbackData, props }) {
     const res = await fetch('/api/messages', {
       body: JSON.stringify({
         body: inputEl.current.value,
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'POST'
+    });
+
+    const emailEntry = await fetch(`/api/messages/relay&usd=${session.user.id}`, {
+      body: JSON.stringify({
+        sdn: session.user.name,
+        data: inputEl.current.value
       }),
       headers: {
         'Content-Type': 'application/json'
