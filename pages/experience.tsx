@@ -19,7 +19,7 @@ export default function ExperienceResume() {
         </h1>
         <div className="mb-8 prose dark:prose-dark leading-6">
           <h2>I've had a lot of experience for my age. Read below to learn more.</h2>
-          <h3>Summer Camp Counselor & Specialist</h3>
+          <h3 id='jcc'>Summer Camp Counselor & Specialist</h3>
           <h5 className='text-gray-500'>Stamford JCC | Stamford, CT</h5>
           <h6 className='text-gray-500'>June - August 2022</h6>
           <p>
