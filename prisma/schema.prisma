@@ -24,9 +24,9 @@ model request {
   slug String 
   requestMethod String
   remoteUser String
-  ipCity String?
-  ipCountry String?
-  ipRegion String?
+  ipCity String
+  ipCountry String
+  ipRegion String
   statusCode Int
   timestamp DateTime @default(now()) @db.Timestamp(6)
   userId String?
