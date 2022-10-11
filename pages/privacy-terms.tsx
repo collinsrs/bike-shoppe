@@ -10,6 +10,9 @@ export default function PrivacyPolicy (props) {
             'Authorization': '492ef020-f8f9-11ea-9fa5-0242ac130003-2390fkv3k05svc'
           } 
       })
+      fetch ('api/hooks/slack?slug=privacy', {
+        method: 'POST',
+      })
       }
       , [])
     //privacy policy
