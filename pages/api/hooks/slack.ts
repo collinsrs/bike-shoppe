@@ -16,10 +16,51 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
    const timestampAsString = new Date().toLocaleString();
     const result = await web.chat.postMessage({
         channel: channelId,
-        text: `*New request for ${slug} from ${ip} in ${city}, ${region}, ${country} at ${timestampAsString}*`,
+        blocks: [
+            {
+                type: 'section',
+                text: {
+                    type: 'plain_text',
+                    text: `New Site Request for ${slug}`,
+                }
+            },
+            {
+                type: 'section',
+                fields: [
+                    {
+                        type: 'mrkdwn',
+                        text: `*IP Address:*\n${ip}`
+                    },
+                    {
+                        type: 'mrkdwn',
+                        text: `*City:*\n${city}`
+                    },
+                    {
+                        type: 'mrkdwn',
+                        text: `*Region:*\n${region}`
+                    },
+                    {
+                        type: 'mrkdwn',
+                        text: `*Country:*\n${country}`
+                    },
+                    {
+                        type: 'mrkdwn',
+                        text: `*Timestamp:*\n${timestampAsString}`
+                    }
+                ]
+            }
+        ]
     })
 
-    res.status(200).json(result)
+    res.status(201).json(
+        [
+            'statusCode', '201',
+            'requestMethod', 'post',
+            'requestStatus', '201 Created',
+            'timestamp', new Date(),
+
+        ]
+    )
 } else {
     res.status(405).json({error: 'Method not allowed'})
     }
