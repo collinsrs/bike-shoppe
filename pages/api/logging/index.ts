@@ -6,9 +6,6 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 export default async function logRemote(req: NextApiRequest, res: NextApiResponse) {
     const requestId = uuid();
     const remoteIP: string | any = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    const remoteCity: string | any = req.headers['x-vercel-ip-city'] || 'Unknown';
-    const remoteCountry: string | any = req.headers['x-vercel-ip-country'] || 'Unknown';
-    const remoteRegion: string | any = req.headers['x-vercel-ip-region'] || 'Unknown';
     const clientKey: string = '492ef020-f8f9-11ea-9fa5-0242ac130003-2390fkv3k05svc';
     if (req.headers.authorization !== clientKey) {
         res.status(401).json({
@@ -22,9 +19,6 @@ export default async function logRemote(req: NextApiRequest, res: NextApiRespons
             slug: refererSlug,
             requestMethod: 'get',
             remoteUser: remoteIP,
-            ipCity: remoteCity,
-            ipCountry: remoteCountry,
-            ipRegion: remoteRegion,
             statusCode: 200,
             userAgent: req.headers['user-agent'],
             timestamp: new Date(),
