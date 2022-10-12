@@ -18,7 +18,7 @@ module.exports = {
     return [
       {
         source: '/api/geol/:path*',
-        destination: 'https://ip-api.com/json/:path*'
+        destination: 'http://ip-api.com/json/:path*'
 
       }
     ]
