@@ -12,7 +12,25 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
    const ip = req.headers['x-forwarded-for'] || 'Unknown';
    const city = req.headers['x-vercel-ip-city'] || 'Unknown';
    const country = req.headers['x-vercel-ip-country'] || 'Unknown';
-   const region = req.headers['x-vercel-ip-region'] || 'Unknown';
+   //const region = req.headers['x-vercel-ip-region'] || 'Unknown';
+   var isp;
+   var org;
+   var regionCode;
+   var regionName;
+   const ipInfo = await fetch(`/api/geol/${ip}`, {
+    method: 'GET',
+   }).then(res => res.json());
+    if (ipInfo) {
+        isp = ipInfo.isp;
+        org = ipInfo.org;
+        regionCode = ipInfo.region;
+        regionName = ipInfo.regionName;
+    } else {
+        isp = 'Unknown';
+        org = 'Unknown';
+        regionCode = 'Unknown';
+        regionName = 'Unknown';
+    }
    const timestampAsString = new Date().toLocaleString();
     const result = await web.chat.postMessage({
         channel: channelId,
@@ -33,11 +51,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     },
                     {
                         type: 'mrkdwn',
+                        text: `*ISP:*\n${isp}`
+                    },
+                    {
+                        type: 'mrkdwn',
+                        text: `*Organization:*\n${org}`
+                    },
+                    {
+                        type: 'mrkdwn',
                         text: `*City:*\n${city}`
                     },
                     {
                         type: 'mrkdwn',
-                        text: `*Region:*\n${region}`
+                        text: `*Region:*\n${regionName}`
+                    },
+                    {
+                        type: 'mrkdwn',
+                        text: `*Region Code:*\n${regionCode}`
                     },
                     {
                         type: 'mrkdwn',

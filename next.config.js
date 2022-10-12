@@ -14,6 +14,15 @@ module.exports = {
     browsersListForSwc: true,
     images: { allowFutureImage: true }
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/geol/:path*',
+        destination: 'https://ip-api.com/json/:path*'
+
+      }
+    ]
+  },
   async headers() {
     return [
       {
