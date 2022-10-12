@@ -17,7 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
    var org;
    var regionCode;
    var regionName;
-   const ipInfo = await fetch(`/api/geol/${ip}`, {
+   const ipInfo = await fetch(`http://ip-api.com/json/${ip}`, {
     method: 'GET',
    }).then(res => res.json());
     if (ipInfo) {
