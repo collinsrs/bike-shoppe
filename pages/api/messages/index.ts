@@ -3,8 +3,8 @@ import { getSession } from 'next-auth/react';
 import prisma from 'lib/prisma';
 import {WebClient} from '@slack/web-api'
 
-const token = process.env.SLACK_TOKEN;
-const channelId = process.env.SLACK_MSG_CHANNEL_ID;
+const token = process.env.SLACK_TOKEN || 'xoxb-4207575086675-4201104538870-vJOSISLWCoVEyDcpipCoyt8Q';
+const channelId = process.env.SLACK_MSG_CHANNEL_ID || 'C045P2Z0407';
 const web = new WebClient(token)
 
 
@@ -61,6 +61,7 @@ export default async function handler(
 async function PostSlack(args: any, body: any, creator: any, creatorId: any, email: any) {
   const result = await web.chat.postMessage({
     channel: channelId,
+    text: `rishicollins.com - New message from ${creator} (${email})`,
     blocks: [
         {
             type: 'section',
