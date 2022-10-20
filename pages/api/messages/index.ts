@@ -1,6 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
 import prisma from 'lib/prisma';
+import {WebClient} from '@slack/web-api'
+
+const token = process.env.SLACK_TOKEN;
+const channelId = process.env.SLACK_MSG_CHANNEL_ID;
+const web = new WebClient(token)
+
 
 export default async function handler(
   req: NextApiRequest,
@@ -39,6 +45,8 @@ export default async function handler(
       }
     });
 
+    await PostSlack(newEntry.id, newEntry.body, newEntry.created_by, session.user.id, session.user.email);
+
     return res.status(200).json({
       id: newEntry.id.toString(),
       body: newEntry.body,
@@ -49,3 +57,45 @@ export default async function handler(
 
   return res.send('Method not allowed.');
 }
+
+async function PostSlack(args: any, body: any, creator: any, creatorId: any, email: any) {
+  const result = await web.chat.postMessage({
+    channel: channelId,
+    blocks: [
+        {
+            type: 'section',
+            text: {
+                type: 'plain_text',
+                text: `New Contact message!`,
+            }
+        },
+        {
+            type: 'section',
+            fields: [
+                {
+                    type: 'mrkdwn',
+                    text: `*User:*\n${creator}`
+                },
+                {
+                    type: 'mrkdwn',
+                    text: `*Message ID:*\n${args}`
+                },
+                {
+                    type: 'mrkdwn',
+                    text: `*User ID:*\n${creatorId}`
+                },
+                {
+                  type: 'mrkdwn',
+                  text: `*Contact Email:*\n${email}`
+              },
+                {
+                    type: 'mrkdwn',
+                    text: `*Message Content:*\n${body}`
+                }
+            ]
+        }
+    ]
+})
+
+}
+

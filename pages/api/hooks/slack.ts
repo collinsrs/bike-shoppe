@@ -2,8 +2,8 @@ import {NextApiRequest, NextApiResponse} from 'next'
 import {WebClient} from '@slack/web-api'
 
 
-const token = process.env.SLACK_TOKEN || 'xoxb-4207575086675-4201104538870-vJOSISLWCoVEyDcpipCoyt8Q';
-const channelId = process.env.SLACK_CHANNEL_ID || 'C04663B2C12'
+const token = process.env.SLACK_TOKEN;
+const channelId = process.env.SLACK_CHANNEL_ID;
 const web = new WebClient(token)
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
