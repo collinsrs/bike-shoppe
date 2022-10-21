@@ -103,7 +103,7 @@ export default function Activities(props) {
                     </div>
                     <h3>Why do I need to sign in?</h3>
                     <p>
-                        Signing in allows me to indentify who is viewing this information. Because this page is intended for college admissions officers, and not the general public. 
+                        Signing in allows me to indentify who is viewing this information, as this page is intended for college admissions officers, not the general public. 
                         Therefore, by logging in you help me by ensuring that only the right people have a hold of this content. 
                         When you login using your social account, I receive your name and associated email. These are transmitted securely over HTTPS/SSL. 
                         Your information is securely stored in a database pursuant to this site's <Link className='text-blue-800 dark:text-blue-500' href='/privacy-terms'>Privacy Policy</Link>.
