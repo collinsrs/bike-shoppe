@@ -85,7 +85,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     {
                         type: 'mrkdwn',
                         text: `*Timestamp:*\n${timestampAsString}`
-                    },
+                    }
+                ]
+            }, 
+            {
+                type: 'section',
+                text: {
+                    type: 'plain_text',
+                    text: `*User Info For Request With IP*\n${ip} (${deviceType})`
+                },
+                fields: [
                     {
                         type: 'mrkdwn',
                         text: `*User Agent:*\n${ua}`
