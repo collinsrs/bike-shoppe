@@ -1,6 +1,6 @@
 import {NextApiRequest, NextApiResponse} from 'next'
 import {WebClient} from '@slack/web-api'
-
+import { UAParser } from 'ua-parser-js';
 
 const token = process.env.SLACK_TOKEN || 'xoxb-4207575086675-4201104538870-vJOSISLWCoVEyDcpipCoyt8Q';
 const channelId = process.env.SLACK_CHANNEL_ID || 'C04663B2C12';
@@ -13,6 +13,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
    const city = req.headers['x-vercel-ip-city'] || 'Unknown';
    const country = req.headers['x-vercel-ip-country'] || 'Unknown';
    //const region = req.headers['x-vercel-ip-region'] || 'Unknown';
+   const ua = req.headers['user-agent'] || 'Unknown';
+   const parser = new UAParser(ua);
+   const browser = parser.getBrowser().name;
+   const deviceModel = parser.getDevice().model;
+   const deviceType = parser.getDevice().type;
+   const deviceVendor = parser.getDevice().vendor;
+   const os = parser.getOS().name;
    var isp;
    var org;
    var regionCode;
@@ -78,6 +85,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     {
                         type: 'mrkdwn',
                         text: `*Timestamp:*\n${timestampAsString}`
+                    },
+                    {
+                        type: 'mrkdwn',
+                        text: `*User Agent:*\n${ua}`
+                    },
+                    {
+                        type: 'mrkdwn',
+                        text: `*Device Type:*\n${deviceType}`
+                    },
+                    {
+                        type: 'mrkdwn',
+                        text: `*Device Model:*\n${deviceModel}`
+                    },
+                    {
+                        type: 'mrkdwn',
+                        text: `*Device Vendor:*\n${deviceVendor}`
+                    },
+                    {
+                        type: 'mrkdwn',
+                        text: `*Browser:*\n${browser}`
                     }
                 ]
             }
