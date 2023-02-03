@@ -56,8 +56,8 @@ export default function Home({fallbackData}) {
           </h3>
           <div className="flex gap-6 flex-col md:flex-row">
             <BlogPostCard
-              title="My Programming: The Journey and Future"
-              slug="journey"
+              title="Why GraphQL is the future of API development"
+              slug="why-graphql-is-the-future-of-apis"
               gradient="from-[#D8B4FE] to-[#818CF8]"
             />
             <BlogPostCard
@@ -66,8 +66,8 @@ export default function Home({fallbackData}) {
               gradient="from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
             />
             <BlogPostCard
-              title="From HTML to React, to Next,js (aka now.js)"
-              slug="html-to-react-to-next"
+              title="Re-writing my first major project in Next.js"
+              slug="fullstack-app-rewrite"
               gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
             />
           </div>
