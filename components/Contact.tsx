@@ -77,14 +77,6 @@ export default function Contact({ fallbackData, props }) {
             Login
           </a>
         )}
-        {session && session.user.role === 'RESTRICTED'
-          && (
-            <div className="flex items-center justify-center my-4 font-bold h-8 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded w-28">
-             <p className="text-red-800 dark:text-red-500">
-                Your account has been restricted from sending messages due to abuse.
-              </p>
-              </div>
-              )}
         {session?.user && (
           <form className="relative my-4" onSubmit={leaveEntry}>
             <input
@@ -108,13 +100,6 @@ export default function Contact({ fallbackData, props }) {
             </button>
           </form>
         )}
-        {session && isAdmin === true && (
-          <div className="flex items-center justify-center my-4 font-bold h-8 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded w-28">
-            <p className="text-green-800 dark:text-green-500">
-              Congrats! You're an admin!
-            </p>
-            </div>
-            )}
         {form.state === Form.Error ? (
           <ErrorMessage>{form.message}</ErrorMessage>
         ) : form.state === Form.Success ? (
