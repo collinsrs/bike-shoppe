@@ -8,6 +8,7 @@ import { Form, FormState } from 'lib/types';
 import SuccessMessage from 'components/SuccessMessage';
 import ErrorMessage from 'components/ErrorMessage';
 import LoadingSpinner from 'components/LoadingSpinner';
+import { isAdmin } from 'pages/api/auth/[...nextauth]';
 
 
 
@@ -107,7 +108,7 @@ export default function Contact({ fallbackData, props }) {
             </button>
           </form>
         )}
-        {session && session.user.role === 'admin' && (
+        {session && isAdmin === true && (
           <div className="flex items-center justify-center my-4 font-bold h-8 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded w-28">
             <p className="text-green-800 dark:text-green-500">
               Congrats! You're an admin!

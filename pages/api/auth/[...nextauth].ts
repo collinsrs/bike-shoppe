@@ -4,6 +4,8 @@ import GoogleProvider from "next-auth/providers/google";
 import prisma from '../../../lib/prisma';
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 
+export var isAdmin: boolean = false;
+
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
   providers: [
@@ -20,6 +22,10 @@ export default NextAuth({
      async session({session, token, user}) {
       session.user.id = user.id;
       session.user.role = user.role;
+      if (user.role === "ADMIN") {
+        isAdmin = true;
+      }
+      session.user.adminAccessToken = user.adminAccessToken;
       return session;
      }
   }

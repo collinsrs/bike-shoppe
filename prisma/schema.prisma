@@ -37,9 +37,20 @@ model User {
   emailVerified DateTime?
   image         String?
   Role          String?
+  tokens       AdminTokens[]
   requests      request[]
   accounts      Account[]
   sessions      Session[]
+}
+
+model AdminTokens {
+  id String @id @default(uuid())
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+  perms String[]
+  userId String
+  user User @relation(fields: [userId], references: [id])
+
+
 }
 
 model Account {

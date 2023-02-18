@@ -31,11 +31,11 @@ export default function Home({fallbackData}) {
                 Rishi Collins
               </h1>
               <h2 className="text-gray-700 dark:text-gray-200 mb-4">
-                Student, aspiring{' '}
-                <span className="font-semibold">Software Engineer/Developer</span>
+                Student, {' '}
+                <span className="font-semibold">Entrepreneur, Developer.</span>
               </h2>
               <p className="text-gray-600 dark:text-gray-400 mb-16">
-                Experienced High-School student with a strong passion for technology, I am working to fulfill my dreams as a software developer.
+               I am an 18-year old, self-taught software developer and entrepreneur who has significant knowledge in business structure, web development, and creating / interacting with APIs. I am currently working on a few projects, and I am always looking for new opportunities.
               </p>
             </div>
             <div className="w-[80px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto">

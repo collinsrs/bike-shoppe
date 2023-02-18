@@ -40,8 +40,8 @@ export default function Container(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title: 'Rishi Collins – Student, Developer, Engineer.',
-    description: `Aspiring Software Developer.`,
+    title: 'Rishi Collins – Student, Entrepreneur, Developer.',
+    description: `Proficient 18 year-old software developer with significant knowledge of business, web development, and APIs.`,
     image: 'https://rishicollins.com/static/images/favicon.ico',
     type: 'website',
     ...customMeta
