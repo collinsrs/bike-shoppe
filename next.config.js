@@ -9,11 +9,6 @@ module.exports = {
       'cdn.sanity.io'
     ]
   },
-  experimental: {
-    legacyBrowsers: false,
-    browsersListForSwc: true,
-    images: { allowFutureImage: true }
-  },
   async rewrites() {
     return [
       {
