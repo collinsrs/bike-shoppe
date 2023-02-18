@@ -40,7 +40,7 @@ export default function UserTable() {
                 {data.allUsers.map((user) => (
                     <tr key={user.id}>
                         <td>
-                            <Link href={`/admin/user/${user.id}`}>
+                            <Link legacyBehavior href={`/admin/user/${user.id}`}>
                                 <a>{user.id}</a>
                             </Link>
                         </td>

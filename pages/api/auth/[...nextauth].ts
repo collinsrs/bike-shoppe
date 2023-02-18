@@ -18,16 +18,5 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_NEXTAUTH_SECRET,
     })
   ],
-  callbacks: {
-     async session({session, token, user}) {
-      session.user.id = user.id;
-      session.user.role = user.role;
-      if (user.role === "ADMIN") {
-        isAdmin = true;
-      }
-      session.user.adminAccessToken = user.adminAccessToken;
-      return session;
-     }
-  }
 });
 

@@ -1,9 +1,4 @@
-import Link from 'next/link';
-import Image from 'next/future/image';
-
 import Container from 'components/Container';
-import avatar from 'public/avatar.jpg';
-import avatarBW from 'public/avatar-bw.jpg';
 import { useEffect } from 'react';
 
 export default function About() {

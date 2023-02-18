@@ -26,10 +26,8 @@ export default function NotFound() {
           I've looked long, hard, and clear, but I still can't find the page you're looking for using the requested URL. Are you sure you got it Right? Maybe check the spelling?
           If you're positive that you got it right, maybe it might have been taken down. 
         </p>
-        <Link href="/">
-          <a className="p-1 sm:p-4 w-64 font-bold mx-auto bg-gray-200 dark:bg-gray-800 text-center rounded-md text-black dark:text-white">
+        <Link className="p-1 sm:p-4 w-64 font-bold mx-auto bg-gray-200 dark:bg-gray-800 text-center rounded-md text-black dark:text-white" href="/">
             Return Home
-          </a>
         </Link>
       </div>
     </Container>

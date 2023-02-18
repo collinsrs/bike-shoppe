@@ -20,18 +20,14 @@ export default function Footer() {
       <NowPlaying />
       <div className="w-full max-w-2xl grid grid-cols-1 gap-4 pb-16 sm:grid-cols-3">
         <div className="flex flex-col space-y-4">
-          <Link href="/">
-            <a className="text-gray-500 hover:text-gray-600 transition">Home</a>
+          <Link className="text-gray-500 hover:text-gray-600 transition" href="/">
+            Home
           </Link>
-          <Link href="/about">
-            <a className="text-gray-500 hover:text-gray-600 transition">
+          <Link className="text-gray-500 hover:text-gray-600 transition" href="/about">
               About
-            </a>
           </Link>
-          <Link href="/blog">
-            <a className="text-gray-500 hover:text-gray-600 transition">
+          <Link className="text-gray-500 hover:text-gray-600 transition" href="/blog">
               Blog
-            </a>
           </Link>
         </div>
         <div className="flex flex-col space-y-4">
@@ -44,18 +40,14 @@ export default function Footer() {
           </ExternalLink>
         </div>
         <div className="flex flex-col space-y-4">
-          <Link href="/experience">
-            <a className="text-gray-500 hover:text-gray-600 transition">
+          <Link className="text-gray-500 hover:text-gray-600 transition" href="/experience">
               Experience
-            </a>
           </Link>
-          <Link href="/stack">
-            <a className="text-gray-500 hover:text-gray-600 transition">Stack</a>
+          <Link className="text-gray-500 hover:text-gray-600 transition" href="/stack">
+            Stack
           </Link>
-          <Link href="/privacy-terms">
-            <a className="text-gray-500 hover:text-gray-600 transition">
+          <Link className="text-gray-500 hover:text-gray-600 transition" href="/privacy-terms">
               Privacy &amp; Terms
-            </a>
           </Link>
         </div>
       </div>

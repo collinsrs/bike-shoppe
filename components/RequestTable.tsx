@@ -45,7 +45,7 @@ export default function RequestTable() {
                 {data.allRequests.map((request) => (
                     <tr key={request.id}>
                         <td>
-                            <Link href={`/admin/request/${request.id}`}>
+                            <Link legacyBehavior href={`/admin/request/${request.id}`}>
                                 <a>{request.id}</a>
                             </Link>
                         </td>

@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import Container from '../components/Container';
@@ -71,8 +71,7 @@ export default function Home({fallbackData}) {
               gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
             />
           </div>
-          <Link href="/blog">
-            <a className="flex mt-8 text-gray-600 dark:text-gray-400 leading-7 rounded-lg hover:text-gray-800 dark:hover:text-gray-200 transition-all h-6">
+          <Link className="flex mt-8 text-gray-600 dark:text-gray-400 leading-7 rounded-lg hover:text-gray-800 dark:hover:text-gray-200 transition-all h-6" href="/blog">
               Read all posts
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +87,6 @@ export default function Home({fallbackData}) {
                   d="M17.5 12h-15m11.667-4l3.333 4-3.333-4zm3.333 4l-3.333 4 3.333-4z"
                 />
               </svg>
-            </a>
           </Link>
           <span className="h-16" />
           <Contact fallbackData={fallbackData} props={undefined} />
