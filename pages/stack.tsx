@@ -3,18 +3,6 @@ import Image from 'next/image';
 import { useEffect } from 'react';
 
 export default function Uses() {
-  useEffect(() => {
-    fetch ('/api/logging?ref=stack', {
-      method: 'POST',
-      headers: {
-        'Authorization': '492ef020-f8f9-11ea-9fa5-0242ac130003-2390fkv3k05svc'
-      } 
-  })
-  fetch ('api/hooks/slack?slug=stack', {
-    method: 'POST',
-  })
-  }
-  , [])
   return (
     <Container
       title="Techstack – Rishi Collins"

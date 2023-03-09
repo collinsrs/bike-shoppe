@@ -1,4 +1,4 @@
-import { sanityClient } from 'lib/sanity-server';
+
 import { postSlugsQuery } from 'lib/queries';
 
 const createSitemap = (slugs) => `<?xml version="1.0" encoding="UTF-8"?>
@@ -7,7 +7,7 @@ const createSitemap = (slugs) => `<?xml version="1.0" encoding="UTF-8"?>
           .map((slug) => {
             return `
                 <url>
-                    <loc>${`https://rishicollins.com/${slug}`}</loc>
+                    <loc>${`https://bikeshoppe.vercel.app/${slug}`}</loc>
                 </url>
             `;
           })
@@ -15,16 +15,10 @@ const createSitemap = (slugs) => `<?xml version="1.0" encoding="UTF-8"?>
     </urlset>
 `;
 export async function getServerSideProps({ res }) {
-  const allPosts = await sanityClient.fetch(postSlugsQuery);
   const allPages = [
-    ...allPosts.map((slug) => `blog/${slug}`),
     ...[
       '',
-      'about',
-      'blog',
-      'stack',
-      'experience',
-      'privacy-terms'
+      'gallery',
     ]
   ];
 

@@ -3,24 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import Container from '../components/Container';
-import BlogPostCard from '../components/BlogPostCard';
-import Contact from 'components/Contact';
 import { useEffect } from 'react';
+import VideoPlayer from 'components/VideoPlayer';
+import VideoCard from 'components/VideoCard';
 
 
 export default function Home({fallbackData}) {
-  useEffect(() => {
-    fetch ('/api/logging?ref=main', {
-      method: 'POST',
-      headers: {
-        'Authorization': '492ef020-f8f9-11ea-9fa5-0242ac130003-2390fkv3k05svc'
-      } 
-  })
-  fetch ('api/hooks/slack?slug=home', {
-    method: 'POST',
-  })
-  }
-  , [])
   return (
     <Suspense fallback={null}>
       <Container>
@@ -28,68 +16,44 @@ export default function Home({fallbackData}) {
           <div className="flex flex-col-reverse sm:flex-row items-start">
             <div className="flex flex-col pr-8">
               <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">
-                Rishi Collins
+                Ye Olde Bike Shoppe
               </h1>
               <h2 className="text-gray-700 dark:text-gray-200 mb-4">
-                Student, {' '}
-                <span className="font-semibold">Entrepreneur, Developer.</span>
+                Students {' '}
+                <span className="font-semibold">Repairing Bikes.</span>
               </h2>
               <p className="text-gray-600 dark:text-gray-400 mb-16">
-               I am an 18-year old, self-taught software developer and entrepreneur who has significant knowledge in business structure, web development, and creating / interacting with APIs. I am currently working on a few projects, and I am always looking for new opportunities.
+               For our Project : Pomfret group, we took the initiative to collect bikes from community members, repairing them. Keep reading to learn more about our adventures!
               </p>
             </div>
             <div className="w-[80px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto">
               <Image
-                alt="Rishi Collins"
+                alt="Bike Shoppe Logo"
                 height={176}
                 width={176}
-                src="/avatar.jpg"
+                src="/avatar.png"
                 sizes="30vw"
                 priority
-                className="rounded-full filter grayscale"
+                className="filter "
               />
             </div>
           </div>
+          <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
+            Image Gallery
+          </h3>
+          <Link className="p-1 sm:p-4 w-64 font-bold mx-auto bg-gray-200 dark:bg-gray-800 text-center rounded-md text-black dark:text-white" href="/gallery">
+            View Photos
+         </Link>
 
           <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
-            Featured Posts
+            Featured Videos
           </h3>
           <div className="flex gap-6 flex-col md:flex-row">
-            <BlogPostCard
-              title="Why GraphQL is the future of API development"
-              slug="why-graphql-is-the-future-of-apis"
-              gradient="from-[#D8B4FE] to-[#818CF8]"
-            />
-            <BlogPostCard
-              title="My First Full-Scale Web Application"
-              slug="building-a-full-scale-web-app"
-              gradient="from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
-            />
-            <BlogPostCard
-              title="Re-writing my first major project in Next.js"
-              slug="fullstack-app-rewrite"
-              gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
-            />
+            <Suspense fallback={null}>
+           <VideoPlayer />
+            </Suspense>
           </div>
-          <Link className="flex mt-8 text-gray-600 dark:text-gray-400 leading-7 rounded-lg hover:text-gray-800 dark:hover:text-gray-200 transition-all h-6" href="/blog">
-              Read all posts
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                className="h-6 w-6 ml-1"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17.5 12h-15m11.667-4l3.333 4-3.333-4zm3.333 4l-3.333 4 3.333-4z"
-                />
-              </svg>
-          </Link>
           <span className="h-16" />
-          <Contact fallbackData={fallbackData} props={undefined} />
         </div>
       </Container>
     </Suspense>

@@ -24,7 +24,6 @@ export default function App({ Component, pageProps }: AppProps) {
         >
         <Component {...pageProps} />
         <Analytics />
-        <GoogleAnalytics gaMeasurementId={gaMeasurementId} strategy="lazyOnload" />
         </MantineProvider>
       </ThemeProvider>
       </ApolloProvider>

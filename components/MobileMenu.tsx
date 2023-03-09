@@ -67,32 +67,8 @@ export default function MobileMenu() {
             className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
             style={{ transitionDelay: '175ms' }}
           >
-            <Link className="flex w-auto pb-4" href="/about">
-              About
-            </Link>
-          </li>
-          <li
-            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
-            style={{ transitionDelay: '175ms' }}
-          >
-            <Link className="flex w-auto pb-4" href="/experience">
-              Experience
-            </Link>
-          </li>
-          <li
-            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
-            style={{ transitionDelay: '250ms' }}
-          >
-            <Link className="flex w-auto pb-4" href="/blog">
-              Blog
-            </Link>
-          </li>
-          <li
-            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
-            style={{ transitionDelay: '350ms' }}
-          >
-            <Link className="flex w-auto pb-4" href="/stack">
-              Stack
+            <Link className="flex w-auto pb-4" href="/gallery">
+              Gallery
             </Link>
           </li>
         </ul>

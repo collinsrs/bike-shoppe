@@ -6,7 +6,8 @@ module.exports = {
   reactStrictMode: true,
   images: {
     domains: [
-      'cdn.sanity.io'
+      'cdn.sanity.io',
+      'aws.syncfind.io'
     ]
   },
   async rewrites() {
@@ -35,7 +36,7 @@ const ContentSecurityPolicy = `
     child-src *.youtube.com *.google.com *.twitter.com;
     style-src 'self' 'unsafe-inline' *.googleapis.com;
     img-src * www.googletagmanager.com blob: data:;
-    media-src 'none';
+    media-src 'self' *.syncfind.io;
     connect-src *;
     font-src 'self';
 `;

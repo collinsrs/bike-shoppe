@@ -2,18 +2,7 @@ import Container from 'components/Container';
 import { useEffect } from 'react';
 
 export default function About() {
-  useEffect(() => {
-    fetch ('/api/logging?ref=about', {
-      method: 'POST',
-      headers: {
-        'Authorization': '492ef020-f8f9-11ea-9fa5-0242ac130003-2390fkv3k05svc'
-      } 
-  })
-  fetch ('api/hooks/slack?slug=about', {
-    method: 'POST',
-  })
-  }
-  , [])
+
   return (
     <Container title="About Me – Rishi Collins">
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">

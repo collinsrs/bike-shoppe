@@ -40,9 +40,9 @@ export default function Container(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title: 'Rishi Collins – Student, Entrepreneur, Developer.',
-    description: `Proficient 18 year-old software developer with significant knowledge of business, web development, and APIs.`,
-    image: 'https://rishicollins.com/static/images/favicon.ico',
+    title: 'Ye Olde Bike Shoppe.',
+    description: `Project Pomfret Group.`,
+    image: 'https://bike-shoppe-vercel.app/static/images/favicon.ico',
     type: 'website',
     ...customMeta
   };
@@ -53,18 +53,12 @@ export default function Container(props) {
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
-        <meta property="og:url" content={`https://rishicollins.com${router.asPath}`} />
-        <link rel="canonical" href={`https://rishicollins.com${router.asPath}`} />
+        <meta property="og:url" content={`https://bike-shoppe.vercel.app${router.asPath}`} />
+        <link rel="canonical" href={`https://bike-shoppe.vercel.app${router.asPath}`} />
         <meta property="og:type" content={meta.type} />
-        <meta property="og:site_name" content="Rishi Collins" />
+        <meta property="og:site_name" content="Ye Olde Bike Shoppe" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
-        <meta property="og:image" content={meta.image} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@washedrsc" />
-        <meta name="twitter:title" content={meta.title} />
-        <meta name="twitter:description" content={meta.description} />
-        <meta name="twitter:image" content={meta.image} />
         {meta.date && (
           <meta property="article:published_time" content={meta.date} />
         )}
@@ -77,10 +71,7 @@ export default function Container(props) {
           <div className="ml-[-0.60rem]">
             <MobileMenu />
             <NavItem href="/" text="Home" />
-            <NavItem href="/about" text="About" />
-            <NavItem href="/experience" text="Experience" />
-            <NavItem href="/blog" text="Blog" />
-            <NavItem href="/stack" text="Stack" />
+            <NavItem href="/gallery" text="Gallery" />
           </div>
           <button
             aria-label="Toggle Dark Mode"
