@@ -23,9 +23,6 @@ export default function Footer() {
           <Link className="text-gray-500 hover:text-gray-600 transition" href="/gallery">
               Gallery
           </Link>
-          <Link className="text-gray-500 hover:text-gray-600 transition" href="/blog">
-              Blog
-          </Link>
         </div>
         <div className="flex flex-col space-y-4">
           
@@ -38,7 +35,7 @@ export default function Footer() {
           © {new Date().getFullYear()} Ye Olde Bike Shoppe
       </p>
       <p className="text-gray-500">
-       Created with <Link href="https://nextjs.org/">Next.js</Link> with design inspired by <Link className='text-blue-600 dark:text-blue-400' href="https://rishicollins.23/">Rishi Collins '23</Link>.
+       Created with <Link href="https://nextjs.org/">Next.js</Link> with design by <Link className='text-blue-600 dark:text-blue-400' href="https://rishicollins.23/">Rishi Collins '23</Link>.
       </p>
     </footer>
   );
