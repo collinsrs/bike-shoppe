@@ -7,7 +7,7 @@ import cn from 'classnames';
 
 import Footer from 'components/Footer';
 import MobileMenu from 'components/MobileMenu';
-import {useSession} from 'next-auth/react';
+
 
 function NavItem({ href, text }) {
   const router = useRouter();
@@ -32,7 +32,7 @@ function NavItem({ href, text }) {
 export default function Container(props) {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
-  const {data: session} = useSession();
+
 
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), []);

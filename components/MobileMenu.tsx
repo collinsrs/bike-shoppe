@@ -3,13 +3,11 @@ import Link from 'next/link';
 import useDelayedRender from 'use-delayed-render';
 import { useState, useEffect } from 'react';
 import styles from 'styles/mobile-menu.module.css';
-import { useSession } from 'next-auth/react';
 
 
 
 export default function MobileMenu() {
 
-  const {data: session} = useSession();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
     isMenuOpen,

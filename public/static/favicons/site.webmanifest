@@ -1,7 +1,7 @@
 {
-    "name": "Rishi Collins",
-    "short_name": "rishicollins.com",
-    "description": "Curious mind, developer, and writer.",
+    "name": "Ye Olde Bike Shoppe",
+    "short_name": "bike-shoppe.vercel.app",
+    "description": "A bike shop website built with Next.js and Tailwind CSS.",
     "icons": [
         {
             "src": "/static/favicons/android-chrome-192x192.png",
